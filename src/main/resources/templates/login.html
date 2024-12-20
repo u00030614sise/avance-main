@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">        
+        <title>Inicio de Sesión del Gimnasio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: #021024;
+                background-image: linear-gradient(135deg, #021024 25%, #052659 50%, #5483B3 75%, #7DA0CA 100%);
+                color: #C1E8FF;
+            }
+            .btn-primary {
+                background-color: #5483B3;
+                border-color: #5483B3;
+                color: #021024;
+            }
+            .btn-secondary {
+                background-color: #052659;
+                border-color: #052659;
+                color: #C1E8FF;
+            }
+            .form-label {
+                color: #C1E8FF;
+            }
+            .form-control {
+                background-color: #7DA0CA;
+                color: #021024;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="text-center mt-5">Inicio de Sesión del Gimnasio</h1>
+        <div class="container text-center">
+            <form action="/login" method="post" th:object="${login}">
+                <div class="mb-3">
+                    <label for="Usuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="users" name="users" th:field="*{users}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Contraseña" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" th:field="*{password}" required>
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    <a href="/registro" class="btn btn-secondary mt-2 d-block">Registrarse</a>
+                </div>
+                <div th:if="${error}" class="alert alert-danger">
+                    <p th:text="${error}"></p> 
+                </div>
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+
